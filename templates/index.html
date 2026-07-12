@@ -1,0 +1,211 @@
+{% extends 'base.html' %} {% load static %} {% block main %}
+
+<!-- ================= PAGE 1: CATALOG ================= -->
+<main class="page active" id="page-catalog">
+
+    <section class="hero">
+
+        <div class="hero-watermark display">RENT</div>
+        <div class="wrap">
+            <div class="hero-grid">
+                <div>
+                    <h1 class="hero-stat display"><span class="num" id="carCount">0</span> авто<br>готовы к аренде</h1>
+                    <p class="hero-sub">Выбирайте машину, смотрите даты в календаре и бронируйте онлайн за пару минут — без очередей и звонков.</p>
+                    <div class="hero-actions">
+                        <a href="#catalog" class="btn btn-primary">Выбрать авто</a>
+                        <a href="#how" class="btn btn-ghost">Как это работает</a>
+                    </div>
+                </div>
+                <div class="hero-side">
+                    <div class="hero-side-row"><span class="k">Свободно сейчас</span><span class="v mono" id="sideFree">—</span></div>
+                    <div class="hero-side-row"><span class="k">Классов авто</span><span class="v mono" id="sideClasses">—</span></div>
+                    <div class="hero-side-row"><span class="k">Мин. цена / сутки</span><span class="v mono" id="sideMinPrice">—</span></div>
+                    <div class="hero-side-row"><span class="k">Подача авто</span><span class="v mono">от 30 мин</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="catalog">
+        <div class="wrap">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Каталог</div>
+                    <h2 class="section-title display">Весь автопарк</h2>
+                </div>
+                <p class="section-desc">Пролистайте карточки или отфильтруйте по классу. Нажмите на авто, чтобы увидеть характеристики и календарь свободных дат.</p>
+            </div>
+
+            <div class="filters" id="filters"></div>
+
+            <div class="carousel-wrap">
+                <div class="carousel" id="carousel"></div>
+                <div class="carousel-nav">
+                    <button class="cnav-btn" onclick="scrollCarousel(-1)" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+                    <button class="cnav-btn" onclick="scrollCarousel(1)" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
+                </div>
+            </div>
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </section>
+
+    <section class="section" id="how" style="border-top:1px solid var(--line);">
+        <div class="wrap">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Процесс</div>
+                    <h2 class="section-title display">Как это работает</h2>
+                </div>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="num mono">01</div>
+                    <h3>Выберите авто</h3>
+                    <p>Пролистайте каталог, сравните классы и характеристики каждой модели.</p>
+                </div>
+                <div class="step">
+                    <div class="num mono">02</div>
+                    <h3>Отметьте даты</h3>
+                    <p>В карточке авто откройте календарь и укажите нужный период — свободные дни видны сразу.</p>
+                </div>
+                <div class="step">
+                    <div class="num mono">03</div>
+                    <h3>Заберите ключи</h3>
+                    <p>Подтвердите бронь или оформите аренду сразу — авто подадут к указанному адресу.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacts">
+        <div class="wrap">
+            <div class="foot-grid">
+                <div class="foot-col">
+                    <h4>ES RENT CAR</h4>
+                    <p style="color:var(--muted);max-width:260px;">Аренда автомобилей любого класса — от эконома до премиум, с подачей по городу.</p>
+                </div>
+                <div class="foot-col">
+                    <h4>Контакты</h4>
+                    <a href="tel:+998900001460">+998 (90) 000-14-60</a>
+                    <a href="mailto:#">es@rentcar.uz</a>
+                </div>
+                <div class="foot-col">
+                    <h4>Офис</h4>
+                    <p>Ташкент, ваш адрес</p>
+                    <p>Ежедневно 09:00–23:00</p>
+                </div>
+            </div>
+            <div class="foot-bottom">
+                <span>© 2026 ES RENT CAR. Все права защищены.</span>
+                <span>Логотип и бренд добавляются владельцем сайта.</span>
+            </div>
+        </div>
+    </footer>
+</main>
+
+<!-- ================= PAGE 2: DETAIL ================= -->
+<main class="page" id="page-detail">
+    <section class="detail-hero">
+        <div class="wrap">
+            <a href="#catalog" class="back-link" onclick="goToCatalog()"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg> Назад в каталог</a>
+
+            <div class="detail-grid">
+                <div class="detail-media" id="detailMedia"></div>
+                <div>
+                    <div class="detail-title-row">
+                        <h1 class="detail-name display" id="detailName">—</h1>
+                    </div>
+                    <div class="detail-class" id="detailClass">—</div>
+
+                    <div class="spec-grid" id="specGrid"></div>
+
+                    <div class="price-box">
+                        <div class="big mono" id="detailPrice">— <span>/ сутки</span></div>
+                        <div class="eyebrow" id="detailPlate">—</div>
+                    </div>
+
+                    <div class="detail-actions">
+                        <button class="btn btn-ghost btn-block" onclick="openBookingModal('reserve')">Забронировать</button>
+                        <button class="btn btn-primary btn-block" onclick="openBookingModal('rent')">Арендовать сейчас</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="calendar-section">
+        <div class="wrap">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Шахматка занятости</div>
+                    <h2 class="section-title display">Свободные даты</h2>
+                </div>
+                <p class="section-desc">Отметьте день заезда, затем день возврата — доступные даты выделены светлым, занятые заштрихованы.</p>
+            </div>
+
+            <div class="calendar-wrap">
+                <div>
+                    <div class="cal-head">
+                        <div class="cal-title display" id="calTitle">—</div>
+                        <div class="cal-switch">
+                            <button onclick="shiftMonth(-1)" aria-label="Пред. месяц"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+                            <button onclick="shiftMonth(1)" aria-label="След. месяц"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
+                        </div>
+                    </div>
+                    <div class="cal-dow"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div>
+                    <div class="cal-grid" id="calGrid"></div>
+                    <div class="cal-legend">
+                        <div class="leg-item"><span class="leg-swatch avail"></span>Свободно</div>
+                        <div class="leg-item"><span class="leg-swatch booked"></span>Занято</div>
+                        <div class="leg-item"><span class="leg-swatch selected"></span>Выбрано</div>
+                    </div>
+                </div>
+
+                <div class="booking-panel">
+                    <h3>Ваша бронь</h3>
+                    <p class="bp-hint">Кликните доступный день — начало периода, затем ещё один — конец. Клик по занятому дню недоступен.</p>
+                    <div class="bp-row"><span class="k">Заезд</span><span class="v" id="bpStart">не выбрано</span></div>
+                    <div class="bp-row"><span class="k">Возврат</span><span class="v" id="bpEnd">не выбрано</span></div>
+                    <div class="bp-row"><span class="k">Дней аренды</span><span class="v" id="bpDays">0</span></div>
+                    <div class="bp-total"><span>Итого</span><span class="mono" id="bpTotal">$0</span></div>
+                    <div class="detail-actions">
+                        <button class="btn btn-ghost btn-block" onclick="openBookingModal('reserve')">Забронировать</button>
+                        <button class="btn btn-primary btn-block" onclick="openBookingModal('rent')">Арендовать сейчас</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ================= MODAL ================= -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+        <button class="modal-close" onclick="closeModal()" aria-label="Закрыть">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+
+        <div id="modalForm">
+            <h3 id="modalTitle">Бронирование</h3>
+            <p class="sub" id="modalSub">Оставьте контакты — мы закрепим авто на выбранные даты.</p>
+            <div class="field">
+                <label for="fName">Имя</label>
+                <input type="text" id="fName" placeholder="Иван Иванов">
+            </div>
+            <div class="field">
+                <label for="fPhone">Телефон</label>
+                <input type="tel" id="fPhone" placeholder="+998 90 000 00 00">
+            </div>
+            <button class="btn btn-primary btn-block" onclick="submitBooking()" id="modalSubmitBtn">Подтвердить</button>
+        </div>
+
+        <div class="modal-success" id="modalSuccess">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <h3 id="successTitle">Готово!</h3>
+            <p id="successText">Заявка отправлена.</p>
+            <button class="btn btn-ghost btn-block" style="margin-top:22px;" onclick="closeModal()">Закрыть</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

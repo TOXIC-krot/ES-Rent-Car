@@ -1,0 +1,13 @@
+/* Увеличенный отступ между строками в списке авто (и в списке броней) */
+#result_list tbody tr th,
+#result_list tbody tr td {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+/* Отступ между таблицей и нижней панелью ("1 Автомобиль" + кнопка "Сохранить") */
+.paginator,
+.submit-row,
+#changelist-form .actions {
+    margin-top: 20px !important;
+}

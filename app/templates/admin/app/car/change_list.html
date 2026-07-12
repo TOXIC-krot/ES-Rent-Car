@@ -1,0 +1,18 @@
+{% extends "admin/change_list.html" %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+#result_list tbody tr th,
+#result_list tbody tr td {
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+}
+
+.paginator,
+.submit-row,
+#changelist-form .actions {
+    margin-top: 20px !important;
+}
+</style>
+{% endblock %}
