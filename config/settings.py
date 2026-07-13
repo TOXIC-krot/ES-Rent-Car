@@ -178,6 +178,10 @@ AWS_S3_ADDRESSING_STYLE = "path"
 AWS_DEFAULT_ACL = None
 AWS_QUERYSTRING_AUTH = False
 
+if AWS_S3_ENDPOINT_URL:
+    _supabase_host = AWS_S3_ENDPOINT_URL.replace("https://", "").split("/storage/v1/s3")[0]
+    AWS_S3_CUSTOM_DOMAIN = f"{_supabase_host}/storage/v1/object/public/{AWS_STORAGE_BUCKET_NAME}"
+
 STORAGES = {
     "default": {
         "BACKEND": "storages.backends.s3.S3Storage",
