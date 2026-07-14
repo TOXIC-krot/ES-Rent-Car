@@ -1474,3 +1474,9 @@ footer {
         font-size: 11px;
     }
 }
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}

@@ -371,9 +371,7 @@ header {
     position: fixed;
     inset: 0;
     z-index: -1;
-    background:
-        repeating-linear-gradient(115deg, transparent 0 120px, rgba(255, 255, 255, .02) 120px 121px, transparent 121px 240px),
-        var(--black);
+    background: repeating-linear-gradient(115deg, transparent 0 120px, rgba(255, 255, 255, .02) 120px 121px, transparent 121px 240px), var(--black);
     overflow: hidden;
     pointer-events: none;
 }
@@ -1473,4 +1471,68 @@ footer {
     .cal-cell {
         font-size: 11px;
     }
+}
+
+
+/* ================= LANGUAGE SWITCH (RUS / ENG / UZB) ================= */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.lang-switch {
+    display: flex;
+    gap: 4px;
+    background: rgba(255, 255, 255, .03);
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 22px;
+    padding: 3px;
+}
+
+.lang-btn {
+    padding: 6px 11px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--muted);
+    border-radius: 18px;
+    transition: background .2s ease, color .2s ease;
+}
+
+.lang-btn:hover {
+    color: var(--white);
+}
+
+.lang-btn.active {
+    background: var(--red);
+    color: var(--white);
+}
+
+@media (max-width: 480px) {
+    .lang-btn {
+        padding: 6px 8px;
+        font-size: 10px;
+    }
+}
+
+
+/* Прячем стандартный баннер Google Translate и сдвиг страницы, который он создаёт */
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+body>.skiptranslate {
+    display: none !important;
+}
+
+#google_translate_element {
+    display: none !important;
 }

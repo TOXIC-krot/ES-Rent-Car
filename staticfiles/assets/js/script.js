@@ -147,8 +147,7 @@ function setupDotObserver(cardsArr) {
             intersectionRatios.set(entry.target, entry.intersectionRatio);
         });
 
-        let bestIdx = 0,
-            bestRatio = -1;
+        let bestIdx = 0, bestRatio = -1;
         cardsArr.forEach((c, i) => {
             const r = intersectionRatios.get(c) || 0;
             if (r > bestRatio) {
